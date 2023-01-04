@@ -31,10 +31,10 @@ public class UserController {
 
     @GetMapping("/{id}")
     public ResponseEntity<User> findById(@PathVariable Integer id) {
-        User findUser = this.userService.findById(id);
-        if (findUser == null) {
+        User foundUser = this.userService.findById(id);
+        if (foundUser == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(findUser);
+        return ResponseEntity.ok(foundUser);
     }
 }

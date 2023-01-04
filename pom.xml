@@ -12,6 +12,7 @@
     <modules>
         <module>user-service</module>
         <module>car-service</module>
+        <module>motorcycle-service</module>
     </modules>
 
     <name>microservices-example</name>
