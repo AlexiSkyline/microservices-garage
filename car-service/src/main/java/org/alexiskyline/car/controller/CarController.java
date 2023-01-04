@@ -21,7 +21,7 @@ public class CarController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Car>> findAllCar() {
+    public ResponseEntity<List<Car>> getAllCars() {
         List<Car> carList = this.carService.findAll();
         if (carList.isEmpty()) {
             return ResponseEntity.noContent().build();
@@ -30,7 +30,7 @@ public class CarController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Car> findCarById(@PathVariable Integer id) {
+    public ResponseEntity<Car> getCarById(@PathVariable Integer id) {
         Car foundUser = this.carService.findById(id);
         if (foundUser == null) {
             return ResponseEntity.notFound().build();
@@ -39,7 +39,7 @@ public class CarController {
     }
 
     @GetMapping("/user/{id}")
-    public ResponseEntity<List<Car>> findAllCarsByUserId(@PathVariable Integer id) {
+    public ResponseEntity<List<Car>> getAllCarsByUserId(@PathVariable Integer id) {
         List<Car> carList = this.carService.findAllByUserId(id);
         if (carList.isEmpty()) {
             return ResponseEntity.noContent().build();

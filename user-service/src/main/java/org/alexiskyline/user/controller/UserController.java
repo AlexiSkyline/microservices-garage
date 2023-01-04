@@ -17,13 +17,13 @@ public class UserController {
     private final IUserService userService;
 
     @PostMapping
-    public ResponseEntity<User> create(@RequestBody User user) {
+    public ResponseEntity<User> createUser(@RequestBody User user) {
         User newUser = this.userService.save(user);
         return ResponseEntity.ok(newUser);
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> findAll() {
+    public ResponseEntity<List<User>> getAllUser() {
         List<User> allUser = this.userService.findAll();
         if (allUser.isEmpty()) {
             return ResponseEntity.noContent().build();
@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> findById(@PathVariable Integer id) {
+    public ResponseEntity<User> getUserById(@PathVariable Integer id) {
         User foundUser = this.userService.findById(id);
         if (foundUser == null) {
             return ResponseEntity.notFound().build();
@@ -41,7 +41,7 @@ public class UserController {
     }
 
     @GetMapping("/car/{id}")
-    public ResponseEntity<List<Car>> findAllCarsByUserId(@PathVariable Integer id) {
+    public ResponseEntity<List<Car>> getAllCarsByUserId(@PathVariable Integer id) {
         List<Car> carList = this.userService.findAllCarsByUserId(id);
         if (carList.isEmpty()) {
             return ResponseEntity.notFound().build();
@@ -50,7 +50,7 @@ public class UserController {
     }
 
     @GetMapping("/motorcycle/{id}")
-    public ResponseEntity<List<Motorcycle>> findAllMotorcyclesByUserId(@PathVariable Integer id) {
+    public ResponseEntity<List<Motorcycle>> getAllMotorcyclesByUserId(@PathVariable Integer id) {
         List<Motorcycle> motorcycleList = this.userService.findAllMotorcyclesByUserId(id);
         if (motorcycleList.isEmpty()) {
             return ResponseEntity.notFound().build();

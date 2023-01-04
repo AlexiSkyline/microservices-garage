@@ -21,7 +21,7 @@ public class MotorcycleController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Motorcycle>> findAllMotorcycle() {
+    public ResponseEntity<List<Motorcycle>> getAllMotorcycles() {
         List<Motorcycle> motorcycleList = this.motorcycleService.findAll();
         if (motorcycleList.isEmpty()) {
             return ResponseEntity.noContent().build();
@@ -30,7 +30,7 @@ public class MotorcycleController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Motorcycle> findMotorcycleById(@PathVariable Integer id) {
+    public ResponseEntity<Motorcycle> getMotorcycleById(@PathVariable Integer id) {
         Motorcycle foundMotorcycle = this.motorcycleService.findById(id);
         if (foundMotorcycle == null) {
             return ResponseEntity.notFound().build();
@@ -39,7 +39,7 @@ public class MotorcycleController {
     }
 
     @GetMapping("/user/{id}")
-    public ResponseEntity<List<Motorcycle>> findAllCarsByUserId(@PathVariable Integer id) {
+    public ResponseEntity<List<Motorcycle>> getAllMotorcyclesByUserId(@PathVariable Integer id) {
         List<Motorcycle> motorcycleList = this.motorcycleService.findAllByUserId(id);
         if (motorcycleList.isEmpty()) {
             return ResponseEntity.noContent().build();
