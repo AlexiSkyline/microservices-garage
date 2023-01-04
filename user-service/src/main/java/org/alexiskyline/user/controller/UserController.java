@@ -2,6 +2,8 @@ package org.alexiskyline.user.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.alexiskyline.user.entity.User;
+import org.alexiskyline.user.models.Car;
+import org.alexiskyline.user.models.Motorcycle;
 import org.alexiskyline.user.service.IUserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,5 +38,23 @@ public class UserController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(foundUser);
+    }
+
+    @GetMapping("/car/{id}")
+    public ResponseEntity<List<Car>> findAllCarsByUserId(@PathVariable Integer id) {
+        List<Car> carList = this.userService.findAllCarsByUserId(id);
+        if (carList.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(carList);
+    }
+
+    @GetMapping("/motorcycle/{id}")
+    public ResponseEntity<List<Motorcycle>> findAllMotorcyclesByUserId(@PathVariable Integer id) {
+        List<Motorcycle> motorcycleList = this.userService.findAllMotorcyclesByUserId(id);
+        if (motorcycleList.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(motorcycleList);
     }
 }
