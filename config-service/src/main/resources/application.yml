@@ -6,7 +6,7 @@ spring:
     config:
       server:
         git:
-          default-label: multiple-instances
+          default-label: gateway-server
           uri: https://github.com/AlexiSkyline/microservices-garage
           search-paths: config-data
   application:
