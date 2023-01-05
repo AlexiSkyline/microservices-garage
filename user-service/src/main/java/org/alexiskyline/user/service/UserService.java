@@ -45,13 +45,13 @@ public class UserService implements IUserService {
 
     @Override
     public List<Car> findAllCarsByUserId(Integer id) {
-        List<Car> carList = this.restTemplate.getForObject(this.PATH + "8082/car/user/" + id, List.class);
+        List<Car> carList = this.restTemplate.getForObject(this.PATH + "8081/car/user/" + id, List.class);
         return carList;
     }
 
     @Override
     public List<Motorcycle> findAllMotorcyclesByUserId(Integer id) {
-        List<Motorcycle> motorcycleList = this.restTemplate.getForObject(this.PATH + "8083/motorcycle/user/" + id, List.class);
+        List<Motorcycle> motorcycleList = this.restTemplate.getForObject(this.PATH + "8081/motorcycle/user/" + id, List.class);
         return motorcycleList;
     }
 
