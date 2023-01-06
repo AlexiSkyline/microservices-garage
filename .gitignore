@@ -4,6 +4,7 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
+zipkin-server-2.24.0-exec.jar
 .idea
 .idea/modules.xml
 .idea/jarRepositories.xml
