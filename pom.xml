@@ -13,6 +13,9 @@
         <module>user-service</module>
         <module>car-service</module>
         <module>motorcycle-service</module>
+        <module>config-service</module>
+        <module>eureka-service</module>
+        <module>gateway-service</module>
     </modules>
 
     <name>microservices-example</name>

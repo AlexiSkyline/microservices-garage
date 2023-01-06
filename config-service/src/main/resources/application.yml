@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          default-label: zipkin-sleuth
+          uri: https://github.com/AlexiSkyline/microservices-garage
+          search-paths: config-data
+  application:
+    name: config-service
