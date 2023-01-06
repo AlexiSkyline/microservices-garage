@@ -23,7 +23,6 @@ public class UserService implements IUserService {
     private final RestTemplate restTemplate;
     private final CarServiceFeignClient carServiceFeignClient;
     private final MotorcycleServiceFeignClient motorcycleServiceFeignClient;
-    private final String PATH = "http://localhost:";
 
     @Override
     @Transactional
@@ -45,13 +44,13 @@ public class UserService implements IUserService {
 
     @Override
     public List<Car> findAllCarsByUserId(Integer id) {
-        List<Car> carList = this.restTemplate.getForObject(this.PATH + "8081/car/user/" + id, List.class);
+        List<Car> carList = this.restTemplate.getForObject("http://car-service/car/user/" + id, List.class);
         return carList;
     }
 
     @Override
     public List<Motorcycle> findAllMotorcyclesByUserId(Integer id) {
-        List<Motorcycle> motorcycleList = this.restTemplate.getForObject(this.PATH + "8081/motorcycle/user/" + id, List.class);
+        List<Motorcycle> motorcycleList = this.restTemplate.getForObject("http://motorcycle-service/motorcycle/user/" + id, List.class);
         return motorcycleList;
     }
 
